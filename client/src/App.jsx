@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import ProtectedRoute from './Component/ProtectedRoute';
 import LoginPage from './Pages/LoginPage';
@@ -10,6 +10,7 @@ const App = () => {
   return (
     <>
       <Toaster position="top-right" />
+      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/products" replace />} />
         <Route path="/login" element={<LoginPage />} />
@@ -31,6 +32,7 @@ const App = () => {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </BrowserRouter>
     </>
   );
 };
